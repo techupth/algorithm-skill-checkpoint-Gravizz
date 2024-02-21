@@ -10,14 +10,8 @@ export const getMaxCharacters = (str) => {
   const collectStr = {};
   let max = 0;
   let letter;
-  for (let i = 0; i < str.length; i++) {
-    if (!collectStr[str[i]]) {
-      collectStr[str[i]] = 1;
-    } else {
-      collectStr[str[i]]++;
-    }
-  }
-  for (let i in collectStr) {
+  for (let i of str) {
+    collectStr[i] = (collectStr[i] || 0) + 1;
     if (collectStr[i] > max) {
       max = collectStr[i];
       letter = i;
